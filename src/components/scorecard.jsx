@@ -1,4 +1,9 @@
-function ScoreCard({currScore, bestScore}){
+import { useState } from "react";
+
+function ScoreCard(){
+    const [currScore, setCurrScore]= useState(0);
+    const [bestScore, setBestScore]= useState(0);
+
     return (
         <div>
             <p>Score: {currScore}</p>
