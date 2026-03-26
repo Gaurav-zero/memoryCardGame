@@ -2,10 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { scoreCard } from './components/scorecard.jsx'
+import { ScoreCard } from './components/scorecard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <scoreCard />
+    <ScoreCard />
   </StrictMode>,
 )

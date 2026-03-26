@@ -1,10 +1,10 @@
-function scoreCard(currScore, bestScore){
+function ScoreCard({currScore, bestScore}){
     return (
         <div>
-            <p>"Score:" {currScore}</p>
-            <p>"Best Score:" {bestScore}</p>
+            <p>Score: {currScore}</p>
+            <p>Best Score: {bestScore}</p>
         </div>
     )
 }
 
-export {scoreCard};
+export {ScoreCard};
