@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-function ScoreCard(){
-    const [currScore, setCurrScore]= useState(0);
-    const [bestScore, setBestScore]= useState(0);
+function ScoreCard({currScore, bestScore}){
 
     return (
         <div>

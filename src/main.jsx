@@ -7,7 +7,6 @@ import { Grids } from './components/grids.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ScoreCard />
     <Grids />
   </StrictMode>,
 )
