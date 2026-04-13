@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, BtnContainer } from "../styles/grids";
+import { Button, BtnContainer } from "../styles/GridStyle";
+import backGround from "../assets/hero.png";
 
 function Grids(){
     const [clicks, setClicks]= useState([0,0,0,0,0,0,0,0,0,0,0,0]);
@@ -7,20 +8,9 @@ function Grids(){
     const [bestScore, setBestScore]= useState(0);
     const [items, setItems]= useState([0,1,2,3,4,5,6,7,8,9,10,11]);
 
-    let pokeUrl="";
+    const [imgUrl, setImgUrl]= useState("");
 
-    function FindUrl(){
-        fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-            .then(function(response){
-                return(response.json());
-            })
-            .then(function(response){
-                pokeUrl= response.sprites.back_default;
-                console.log(pokeUrl);
-            });
-    }
-
-    FindUrl();
+    
 
 
     function manageScore(e){
@@ -66,27 +56,42 @@ function Grids(){
     }
 
 
-    return (
-        <div>
-            
-            <ScoreCard />
+    let pokeUrl="";
 
-            <div style={BtnContainer}>
-                {items.map(item =>{
-                    return(
-                        <Button
-                            key={item}
-                            text={item}
-                            handleClick={handleClick}
-                            manageScore={manageScore}
-                            item={item}
-                            url={pokeUrl}
-                        />
-                    )
-                })}
-            </div>
-        </div>        
-    )
+    function FindUrl(){
+        fetch('https://pokeapi.co/api/v2/pokemon/charizard')
+            .then(function(response){
+                return(response.json());
+            })
+            .then(function(response){
+                pokeUrl= response.sprites.back_default;
+                setImgUrl(pokeUrl);
+                console.log(pokeUrl);
+            });
+    }
+
+    FindUrl();
+
+    return (
+            <div>            
+                <ScoreCard />
+
+                <div style={BtnContainer}>
+                    {items.map(item =>{
+                        return(
+                            <Button
+                                key={item}
+                                text={item}
+                                handleClick={handleClick}
+                                manageScore={manageScore}
+                                item={item}
+                                pokemon={'charizard'}
+                            />
+                        )
+                    })}
+                </div>
+            </div>        
+        )    
 }
 
 export {Grids};
