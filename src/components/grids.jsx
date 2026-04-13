@@ -8,7 +8,9 @@ function Grids(){
     const [bestScore, setBestScore]= useState(0);
     const [items, setItems]= useState([0,1,2,3,4,5,6,7,8,9,10,11]);
 
-    const [imgUrl, setImgUrl]= useState("");
+    const [pokeArray, setPokeArray]= useState(['ditto', 'charizard', 'pikachu', 'greninja', 'bulbasaur', 'squirtle',
+        'snorlax', 'jigglypuff', 'meowth', 'psyduck', 'chikorita', 'blastoise'
+    ]);
 
     
 
@@ -51,26 +53,24 @@ function Grids(){
         return newArr;
     }
 
+    function shufflePokeArray(arr){
+        const newArr= [... arr];
+
+        for(let i=0; i<arr.length; ++i){
+            const j= Math.floor(Math.random() * (i+1));
+            [newArr[i], newArr[j]]= [newArr[j], newArr[i]];
+        }
+
+        return newArr;
+    }
+
     function handleClick(){
         setItems(prev=> shuffle(prev));
+        setPokeArray(prev => shufflePokeArray(prev));
     }
 
 
-    let pokeUrl="";
-
-    function FindUrl(){
-        fetch('https://pokeapi.co/api/v2/pokemon/charizard')
-            .then(function(response){
-                return(response.json());
-            })
-            .then(function(response){
-                pokeUrl= response.sprites.back_default;
-                setImgUrl(pokeUrl);
-                console.log(pokeUrl);
-            });
-    }
-
-    FindUrl();
+   
 
     return (
             <div>            
@@ -85,7 +85,7 @@ function Grids(){
                                 handleClick={handleClick}
                                 manageScore={manageScore}
                                 item={item}
-                                pokemon={'charizard'}
+                                pokemon={pokeArray[item]}
                             />
                         )
                     })}

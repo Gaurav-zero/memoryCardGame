@@ -31,6 +31,8 @@ function Button({text,pokemon,handleClick,manageScore,item}){
         display: "inline",
         width: "inherit",
         backgroundImage: `URL(${pokeUrl})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
     };
 
     return(
