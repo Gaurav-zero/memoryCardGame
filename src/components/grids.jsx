@@ -66,7 +66,7 @@ function Grids(){
 
     function handleClick(){
         setItems(prev=> shuffle(prev));
-        setPokeArray(prev => shufflePokeArray(prev));
+        //setPokeArray(prev => shufflePokeArray(prev));
     }
 
 

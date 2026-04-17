@@ -36,7 +36,7 @@ function Button({text,pokemon,handleClick,manageScore,item}){
     };
 
     return(
-        <button style={BtnStyle} onClick={(e)=> {manageScore(e); handleClick()}}  value={item}>{text}</button>
+        <button style={BtnStyle} onClick={(e)=> {manageScore(e); handleClick()}}  value={item}>{}</button>
     );
 }
 
